@@ -9,13 +9,22 @@ import java.time.LocalTime;
  * 11.01.2015.
  */
 public class Meal {
-    private final LocalDateTime dateTime;
+    int id;
 
-    private final String description;
+    final LocalDateTime dateTime;
 
-    private final int calories;
+    final String description;
+
+    final int calories;
 
     public Meal(LocalDateTime dateTime, String description, int calories) {
+        this.dateTime = dateTime;
+        this.description = description;
+        this.calories = calories;
+    }
+
+    public Meal(int id, LocalDateTime dateTime, String description, int calories) {
+        this.id = id;
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
@@ -39,5 +48,15 @@ public class Meal {
 
     public LocalTime getTime() {
         return dateTime.toLocalTime();
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

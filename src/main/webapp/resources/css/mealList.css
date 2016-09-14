@@ -1,0 +1,52 @@
+table {
+    width: 50%; /* Ширина таблицы */
+    border: 1px solid black; /* Рамка вокруг таблицы */
+    margin: auto; /* Выравниваем таблицу по центру окна  */
+    border-spacing: 1px; /* Расстояние между ячейками */
+    font-size: 110%;
+    font-family: "Ubuntu Light";
+    background-color: ghostwhite
+}
+thead {
+    background-color: gray
+}
+/*tbody {*/
+/*background-color: ghostwhite;*/
+/*}*/
+tbody tr:hover {
+    background-color: lightgrey;
+}
+td, th , tr {
+    padding: 0.5%;
+}
+
+form {
+    font-size: 110%;
+    font-family: "Ubuntu Light";
+}
+
+.colAction {
+    width: 10%;
+}
+
+.colId {
+    width: 20%;
+}
+.colDate {
+    width: 20%;
+}
+.colCalories {
+    width: 15%;
+}
+.editButton {
+    color: blue;
+}
+.deleteButton {
+    color: blue;
+}
+.exceeded { /*Задает цвет строки в зависимости от exceed*/
+    color: red;
+}
+.normal { /*Задает цвет строки в зависимости от exceed*/
+    color: green;
+}
