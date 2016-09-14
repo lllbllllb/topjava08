@@ -1,7 +1,6 @@
 <%@ page import="ru.javawebinar.topjava.util.TimeUtil" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <link rel="stylesheet" type="text/css" href="resources/css/mealList.css"/>
@@ -38,6 +37,7 @@
         <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
             <th class="colId">${meal.id}</th>
             <th class="colDate"><%=TimeUtil.FormattedDate(meal.getDateTime())%>
+            <th>${meal.description}</th>
             <th class="colCalories">${meal.calories}</th>
             <th class="editButton"><a href="meals?action=edit&id=${meal.id}">Edit</a></th>
             <th class="deleteButton"><a href="meals?action=delete&id=${meal.id}">Delete</a></th>
