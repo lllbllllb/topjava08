@@ -8,8 +8,15 @@ import ru.javawebinar.topjava.util.MealsUtil;
  */
 public class AuthorizedUser {
 
-    public static int id() {
-        return 1;
+    private static int userId;
+
+    public static int getId() {
+        return userId;
+    }
+
+    public static void setId(int id) {
+        System.out.println(userId + " <-------------------- ID");
+        userId = id;
     }
 
     public static int getCaloriesPerDay() {
