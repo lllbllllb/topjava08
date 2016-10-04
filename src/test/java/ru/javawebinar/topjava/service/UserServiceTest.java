@@ -20,7 +20,8 @@ import static ru.javawebinar.topjava.UserTestData.*;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
-        "classpath:spring/spring-db.xml"
+        "classpath:spring/spring-db.xml",
+//        "classpath:spring/spring-mock.xml"
 })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserServiceTest {
@@ -42,6 +43,7 @@ public class UserServiceTest {
         User created = service.save(newUser);
         newUser.setId(created.getId());
         MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, newUser, USER), service.getAll());
+
     }
 
     @Test(expected = DataAccessException.class)
