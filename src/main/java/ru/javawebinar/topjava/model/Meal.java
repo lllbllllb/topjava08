@@ -1,7 +1,10 @@
 package ru.javawebinar.topjava.model;
 
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,11 +13,32 @@ import java.time.LocalTime;
  * GKislin
  * 11.01.2015.
  */
+@NamedQueries({
+        @NamedQuery(name = Meal.DELETE, query = "delete from Meal m where m.id=:id and m.user.id=?1"),
+        @NamedQuery(name = Meal.GET, query = "select m from Meal m where m.id=?1 and m.user.id=?2"),
+        @NamedQuery(name = Meal.ALL_SORTED, query = "select m from Meal m where m.user.id=?1 order by m.dateTime desc"),
+        @NamedQuery(name = Meal.BETWEEN, query = "select m from Meal m where m.user.id=?3 and m.dateTime between ?1 and ?2 order by m.dateTime desc")
+})
+@Entity
+@Table(name = "meals")
 public class Meal extends BaseEntity {
+    public static final String DELETE = "Meal.delete";
+    public static final String ALL_SORTED = "Meal.getAllSorted";
+    public static final String GET = "Meal.get";
+    public static final String BETWEEN = "Meal.getBetween";
+    public static final String UPDATE = "Meal.update";
+
+
+    @Column(name = "date_time", nullable = false, columnDefinition = "timestamp default now()")
     private LocalDateTime dateTime;
 
+    @Column(name = "description", nullable = false)
+    @NotEmpty
+    @Length(min = 4)
     private String description;
 
+    @Column(name = "calories", nullable = false, columnDefinition = "2000")
+    @Digits(fraction = 0, integer = 4)
     private int calories;
 
     @ManyToOne(fetch = FetchType.LAZY)
