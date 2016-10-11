@@ -19,9 +19,6 @@ import java.util.List;
  */
 public class SpringMain {
     public static void main(String[] args) {
-        String activeProfiles = Profiles.ACTIVE_DB + ", " + Profiles.ACTIVE_PA;
-        System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, activeProfiles);
-
         // java 7 Automatic resource management
         try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml","spring/mock.xml")) {
             System.out.println("Bean definition names: " + Arrays.toString(appCtx.getBeanDefinitionNames()));

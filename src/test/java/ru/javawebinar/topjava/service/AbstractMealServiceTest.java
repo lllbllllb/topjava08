@@ -14,7 +14,7 @@ import static ru.javawebinar.topjava.MealTestData.*;
 import static ru.javawebinar.topjava.UserTestData.ADMIN_ID;
 import static ru.javawebinar.topjava.UserTestData.USER_ID;
 
-public abstract class MealServiceTest extends BaseServiceTest{
+public abstract class AbstractMealServiceTest extends AbstractPrintTotalResultsTest {
     @Autowired
     protected MealService service;
 
@@ -40,6 +40,7 @@ public abstract class MealServiceTest extends BaseServiceTest{
     @Test
     public void testGet() throws Exception {
         Meal actual = service.get(ADMIN_MEAL_ID, ADMIN_ID);
+        System.out.println(actual);
         MATCHER.assertEquals(ADMIN_MEAL1, actual);
     }
 

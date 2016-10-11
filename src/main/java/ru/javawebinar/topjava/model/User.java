@@ -8,9 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
-import java.util.Date;
-import java.util.EnumSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * User: gkislin
@@ -54,6 +52,10 @@ public class User extends NamedEntity {
     @Column(name = "calories_per_day", columnDefinition = "default 2000")
     @Digits(fraction = 0, integer = 4)
     private int caloriesPerDay = MealsUtil.DEFAULT_CALORIES_PER_DAY;
+
+    @CollectionTable(name = "meals", joinColumns = @JoinColumn(name = "user_id"))
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Meal> mealList;
 
     public User() {
     }
@@ -115,19 +117,41 @@ public class User extends NamedEntity {
         return roles;
     }
 
+    public List<Meal> getMealList() {
+        return mealList;
+    }
+
+    public void setMealList(List<Meal> mealList) {
+        this.mealList = mealList;
+    }
+
     public String getPassword() {
         return password;
     }
 
+//    @Override
+//    public String toString() {
+//        return "User (" +
+//                "id=" + id +
+//                ", email=" + email +
+//                ", name=" + name +
+//                ", enabled=" + enabled +
+//                ", roles=" + roles +
+//                ", caloriesPerDay=" + caloriesPerDay +
+//                ')';
+//    }
+
+
     @Override
     public String toString() {
-        return "User (" +
-                "id=" + id +
-                ", email=" + email +
-                ", name=" + name +
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", enabled=" + enabled +
+                ", registered=" + registered +
                 ", roles=" + roles +
                 ", caloriesPerDay=" + caloriesPerDay +
-                ')';
+                ", mealList=" +  mealList +
+                '}';
     }
 }
