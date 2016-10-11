@@ -18,11 +18,22 @@ public abstract class AbstractPrintTotalResultsTest extends AbstractBaseServiceT
     private static Rebound r = new Rebound(AbstractPrintTotalResultsTest.class.getPackage().getName());
     private static int TESTS_COUNT = r.getSubClassesOf(AbstractPrintTotalResultsTest.class).size();
 
+//    private static int TESTS_COUNT = getTestClass();
+//    private static int getTestClass() {
+//        String classpath = "ru.javawebinar.topjava.service.*.";
+//        ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(true);
+//        provider.addIncludeFilter(new AssignableTypeFilter(AbstractPrintTotalResultsTest.class));
+//        return (int)provider.findCandidateComponents(classpath).stream()
+//                .filter(item -> item.getBeanClassName().startsWith(classpath + "Test"))
+//                .count();
+//    }
+
     private final static StringBuilder testResults = new StringBuilder();
     private static final Map<String, Long> testDurations = new HashMap<>();
     private static boolean needToSetHeader = false;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPrintTotalResultsTest.class);
+
 
     @Rule
     public Stopwatch stopwatch = new Stopwatch() {

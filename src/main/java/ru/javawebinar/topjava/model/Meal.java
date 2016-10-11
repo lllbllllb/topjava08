@@ -101,17 +101,6 @@ public class Meal extends BaseEntity {
         this.user = user;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Meal{" +
-//                "id=" + id +
-//                ", dateTime=" + dateTime +
-//                ", description='" + description + '\'' +
-//                ", calories=" + calories +
-//                '}';
-//    }
-
-
     @Override
     public String toString() {
         return "Meal{" +
