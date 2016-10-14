@@ -90,6 +90,7 @@
             <version>1.7.21</version>
         </dependency>
 
+        <!--Rebound is a tool for looking up subclasses of a given superclass-->
         <dependency>
             <groupId>gigadot.rebound</groupId>
             <artifactId>rebound</artifactId>

@@ -54,7 +54,8 @@ public class User extends NamedEntity {
     private int caloriesPerDay = MealsUtil.DEFAULT_CALORIES_PER_DAY;
 
     @CollectionTable(name = "meals", joinColumns = @JoinColumn(name = "user_id"))
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "user", fetch = FetchType.LAZY)
+    @OrderBy("dateTime DESC")
     private List<Meal> mealList;
 
     public User() {

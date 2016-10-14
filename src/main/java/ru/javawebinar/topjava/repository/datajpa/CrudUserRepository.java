@@ -21,7 +21,7 @@ public interface CrudUserRepository extends JpaRepository<User, Integer> {
     int delete(@Param("id")int id);
 
     @Override
-    @Transactional
+    @Transactional //@Transactional already exist in SimpleJpaRepository's 'Save' method?
     User save(User user);
 
 //    @Override

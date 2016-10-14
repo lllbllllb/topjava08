@@ -17,7 +17,7 @@ public class DataJpaUserServiceTest extends AbstractUserServiceTest {
     @Test
     public void testGet() throws Exception {
         User user = service.get(USER_ID);
-        USER.setMealList(Arrays.asList(MEAL1, MEAL2, MEAL3, MEAL4, MEAL5, MEAL6));
+        USER.setMealList(Arrays.asList(MEAL6, MEAL5, MEAL4, MEAL3, MEAL2, MEAL1));
         MATCHER.assertEquals(USER, user);
     }
 }
