@@ -42,7 +42,7 @@
               acquireIncrement="1" testConnectionOnCheckout="true"
               removeAbandoned="true" logAbandoned="true"
               driverClassName="org.postgresql.Driver"
-              username="user"
+              username="postgres"
               password="password"
               url="jdbc:postgresql://localhost:5432/topjava"/>
     <!--

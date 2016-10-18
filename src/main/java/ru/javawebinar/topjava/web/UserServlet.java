@@ -31,15 +31,17 @@ public class UserServlet extends HttpServlet {
         adminController = springContext.getBean(AdminRestController.class);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.valueOf(request.getParameter("userId"));
-        AuthorizedUser.setId(userId);
-        response.sendRedirect("meals");
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LOG.debug("getAll");
         request.setAttribute("users", adminController.getAll());
         request.getRequestDispatcher("/users.jsp").forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userId = Integer.valueOf(request.getParameter("userId"));
+        AuthorizedUser.setId(userId);
+        response.sendRedirect("meals");
+    }
+
 }
